@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> dialogueBubbles;
     public GameObject[] options;
     public GameObject endScreen;
+    public List<CodeEmojiPair> emojis;
     private int score = 3;
 
     private void Start()
@@ -94,4 +96,11 @@ public class GameManager : MonoBehaviour
         HideOptions();
         ContinueDialog();
     }
+}
+
+[Serializable]
+public struct CodeEmojiPair
+{
+    public string code;
+    public Sprite sprite;
 }
