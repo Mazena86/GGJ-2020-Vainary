@@ -49,7 +49,24 @@ public class GameManager : MonoBehaviour
     {
         GameObject bubble = Instantiate(dialogueBubblePrefab, Vector3.zero, Quaternion.identity);
         dialogueBubbles.Add(bubble);
+        // Load sprites
+        SpeechBubble bubbleScript = bubble.GetComponent<SpeechBubble>();
+        string[] codes = node.text.Split(' ');
+        for(int i = 0; i < codes.Length; i++)
+        {
+            CodeEmojiPair emoji = emojis.Find(x => x.code == codes[i]);
+            if (emoji != null)
+            {
+                bubbleScript.images[i].sprite = emoji.sprite;
+            }
+            else
+            {
+                Debug.LogError("No matching emoji for code " + codes[i]);
+            }
+        }
+
         // TODO: advance all dialogues;
+
         // Allow max 3 dialogues and destroy last if more exist
         if (dialogueBubbles.Count > 3)
         {
@@ -99,7 +116,7 @@ public class GameManager : MonoBehaviour
 }
 
 [Serializable]
-public struct CodeEmojiPair
+public class CodeEmojiPair
 {
     public string code;
     public Sprite sprite;
