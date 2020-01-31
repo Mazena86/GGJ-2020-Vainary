@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public enum DialogueType
@@ -18,7 +19,21 @@ public enum DialogueResult
 [CreateAssetMenu(fileName = "NewDialogue", menuName = "GGJ/Dialogue", order = 1)]
 public class Dialogue : ScriptableObject
 {
+    private int currentNode = -1;
     public List<DialogueNode> nodes = new List<DialogueNode>();
+
+    public DialogueNode GetNextNode()
+    {
+        if (currentNode < nodes.Count)
+        {
+            currentNode++;
+            return nodes[currentNode];
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
 
 [System.Serializable]
