@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Dialogue currentDialogue;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject endScreen;
+    [SerializeField] private GameObject spawnPoint;
     private int currentNode = 0;
 
     public int Score { get; private set; } = 0;
@@ -43,7 +44,8 @@ public class DialogueManager : MonoBehaviour
 
     public void SpawnPatient(GameObject patientPrefab)
     {
-        Patient = Instantiate(patientPrefab, Vector3.zero, Quaternion.identity);
+        Patient = Instantiate(patientPrefab, spawnPoint.transform.position, Quaternion.identity);
+        Patient.GetComponent<Animator>().SetTrigger("Enter");
     }
 
     public void PlayDialogue()
