@@ -14,29 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - type: 0
-    text: laugh laugh laugh laugh laugh
-    options:
-    - emoji: 
-      effect: 0
-    - emoji: 
-      effect: 0
-    - emoji: 
-      effect: 0
-  - type: 0
-    text: laugh laugh laugh laugh laugh
+    emojis:
+    - {fileID: 21300000, guid: f0269793ecb7c834e8440836fc130198, type: 3}
+    - {fileID: 21300000, guid: f0269793ecb7c834e8440836fc130198, type: 3}
+    - {fileID: 21300000, guid: f0269793ecb7c834e8440836fc130198, type: 3}
+    - {fileID: 21300000, guid: f0269793ecb7c834e8440836fc130198, type: 3}
+    - {fileID: 21300000, guid: f0269793ecb7c834e8440836fc130198, type: 3}
     options: []
   - type: 0
-    text: laugh laugh laugh laugh laugh
+    emojis:
+    - {fileID: 21300000, guid: cc3b1794ea6163047b33a9738920e74d, type: 3}
+    - {fileID: 21300000, guid: cc3b1794ea6163047b33a9738920e74d, type: 3}
+    - {fileID: 21300000, guid: cc3b1794ea6163047b33a9738920e74d, type: 3}
+    - {fileID: 21300000, guid: cc3b1794ea6163047b33a9738920e74d, type: 3}
+    - {fileID: 21300000, guid: cc3b1794ea6163047b33a9738920e74d, type: 3}
+    options: []
+  - type: 0
+    emojis:
+    - {fileID: 21300000, guid: c4a35203566da0149b0e6a1d0c227dac, type: 3}
+    - {fileID: 21300000, guid: c4a35203566da0149b0e6a1d0c227dac, type: 3}
+    - {fileID: 21300000, guid: c4a35203566da0149b0e6a1d0c227dac, type: 3}
+    - {fileID: 21300000, guid: c4a35203566da0149b0e6a1d0c227dac, type: 3}
+    - {fileID: 21300000, guid: 937038f14123c414e8b11c76de0fdd18, type: 3}
     options: []
   - type: 1
-    text: laugh laugh laugh laugh laugh
+    emojis: []
     options:
-    - emoji: laugh laugh laugh
+    - emojis:
+      - {fileID: 21300000, guid: 66d2e971e18a2994aafc90f85b3f768b, type: 3}
+      - {fileID: 21300000, guid: 66d2e971e18a2994aafc90f85b3f768b, type: 3}
+      - {fileID: 21300000, guid: 66d2e971e18a2994aafc90f85b3f768b, type: 3}
       effect: 0
-    - emoji: thinking thinking thinking
+    - emojis:
+      - {fileID: 21300000, guid: ddd186d88aa02174482d140f20f6984f, type: 3}
+      - {fileID: 21300000, guid: ddd186d88aa02174482d140f20f6984f, type: 3}
+      - {fileID: 21300000, guid: ddd186d88aa02174482d140f20f6984f, type: 3}
       effect: 1
-    - emoji: unamused unamused unamused
+    - emojis:
+      - {fileID: 21300000, guid: 937038f14123c414e8b11c76de0fdd18, type: 3}
+      - {fileID: 21300000, guid: 937038f14123c414e8b11c76de0fdd18, type: 3}
+      - {fileID: 21300000, guid: 937038f14123c414e8b11c76de0fdd18, type: 3}
       effect: 2
   - type: 0
-    text: laugh laugh laugh laugh laugh
+    emojis:
+    - {fileID: 21300000, guid: 24ebb4c28c8784d48b157761d99037e6, type: 3}
+    - {fileID: 21300000, guid: 24ebb4c28c8784d48b157761d99037e6, type: 3}
+    - {fileID: 21300000, guid: 24ebb4c28c8784d48b157761d99037e6, type: 3}
     options: []

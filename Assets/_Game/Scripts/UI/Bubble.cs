@@ -42,6 +42,7 @@ public class Bubble : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             index++;
         }
+        yield return new WaitForSeconds(1);
         // Done writing so request next bubble
         DialogueManager.Instance.PlayDialogue();
     }

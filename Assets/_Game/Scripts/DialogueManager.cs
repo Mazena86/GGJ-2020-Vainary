@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     private int currentNode = 0;
     private int score = 3;
 
+    public int Score { get { return score; } }
+
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        endScreen.SetActive(false);
         HideOptions();
         PlayDialogue();
     }
@@ -38,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         if (node == null)
         {
             Debug.Log("End");
-            // Show end screen
+            endScreen.SetActive(true);
         }
         else if (node.type == DialogueType.Normal)
         {
