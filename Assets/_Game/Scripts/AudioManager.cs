@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 /**
 README
@@ -21,6 +22,10 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance { get; private set; }
     [SerializeField] private Sound[] sounds;
+    [SerializeField] private Image audioButton;
+    [SerializeField] private Sprite isOnButtonSSprite; 
+    [SerializeField] private Sprite isOffButtonSSprite; 
+
     private float musicVolume = 0.5f;
     private float sfxVolume = 0.5f;
     public bool isDone = false;
@@ -54,9 +59,12 @@ public class AudioManager : MonoBehaviour
         {
             StopAll();
             isOn = false;
+            audioButton.sprite = isOffButtonSSprite;
         }
-        else{
+        else
+        {
             isOn = true;
+            audioButton.sprite = isOnButtonSSprite;
         }
     }
 
