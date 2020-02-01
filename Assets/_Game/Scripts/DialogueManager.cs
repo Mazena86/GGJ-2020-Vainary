@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
 
     public int Score { get { return score; } }
 
+    public GameObject Patient { get { return patient; } }
+
     private void Awake()
     {
         if (Instance == null)
