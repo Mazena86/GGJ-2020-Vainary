@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 public class Bubble : MonoBehaviour
 {
-    private List<Image> emojis;
+    private List<Sprite> emojis;
     private int counter;
     private bool animating = false;
 
@@ -16,7 +16,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private Image regularBubble;
     [SerializeField] private Vector3 initEmojiPosition;
 
-    public void Initialize(List<Image> sprites, Vector3 startPos, float xOffset)
+    public void Initialize(List<Sprite> sprites, Vector3 startPos, float xOffset)
     {
         emojis = sprites;
         counter = emojis.Count;
@@ -24,9 +24,20 @@ public class Bubble : MonoBehaviour
         FadeIn();
     }
 
-    private void TypewriteEmojis()
+    public IEnumerator TypewriteEmojis()
     {
-
+        Stack<Sprite> emojiQueue = new Stack<Sprite>(emojis);
+        int index = 0;
+        while (emojiQueue.Count > 0)
+        {
+            Sprite next = emojiQueue.Pop();
+            GameObject slot = gameObject.transform.GetChild(index).gameObject;
+            slot.GetComponent<Image>().sprite = next;
+            yield return new WaitForSeconds(1);
+            index++;
+        }
+        // Done writing so request next bubble
+        DialogueManager.Instance.PlayDialogue();
     }
 
     public void MoveUp(float xOffset)
@@ -74,6 +85,11 @@ public class Bubble : MonoBehaviour
         {
             // The object should be moved to unused list
             Debug.Log("Done FadeOut");
+        }
+        else
+        {
+            StartCoroutine(TypewriteEmojis());
+            Debug.Log("Done FadeIn");
         }
     }
 
