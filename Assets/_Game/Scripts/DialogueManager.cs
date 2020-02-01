@@ -10,10 +10,13 @@ public class DialogueManager : MonoBehaviour
     public Dialogue currentDialogue;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject endScreen;
+    private GameObject patient;
     private int currentNode = 0;
     private int score = 3;
 
     public int Score { get { return score; } }
+
+    public GameObject Patient { get { return patient; } }
 
     private void Awake()
     {
@@ -31,7 +34,17 @@ public class DialogueManager : MonoBehaviour
     {
         endScreen.SetActive(false);
         HideOptions();
-        PlayDialogue();
+    }
+
+    public void SetDialogue(Dialogue dialogue)
+    {
+        currentDialogue = dialogue;
+        currentNode = 0;
+    }
+
+    public void SpawnPatient(GameObject patientPrefab)
+    {
+        patient = Instantiate(patientPrefab, Vector3.zero, Quaternion.identity);
     }
 
     public void PlayDialogue()

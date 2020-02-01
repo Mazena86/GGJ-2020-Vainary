@@ -39,5 +39,9 @@ public class EndScreen : MonoBehaviour
         {
             scores.transform.GetChild(i).gameObject.SetActive(true);
         }
+        if (calculatedScore > PlayerPrefs.GetInt(DialogueManager.Instance.Patient.name, 0))
+        {
+            PlayerPrefs.SetInt(DialogueManager.Instance.Patient.name, calculatedScore);
+        }
     }
 }
