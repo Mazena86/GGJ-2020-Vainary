@@ -16,11 +16,15 @@ public class Option : MonoBehaviour
     public void Initialize(List<Sprite> sprites, DialogueResult result)
     {
         this.result = result;
-        int index = 0;
-        foreach (Transform child in transform)
+        foreach(Transform child in transform)
         {
-            child.GetComponent<Image>().sprite = sprites[index];
-            index++;
+            child.gameObject.SetActive(false);
+        }
+        for (int i = 0; i < sprites.Count; i++)
+        {
+            GameObject child = transform.GetChild(i).gameObject;
+            child.GetComponent<Image>().sprite = sprites[i];
+            child.SetActive(true);
         }
     }
 
