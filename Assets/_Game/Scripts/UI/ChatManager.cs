@@ -46,7 +46,7 @@ public class ChatManager : MonoBehaviour
         // Clear last bubble
         if (activeBubbles.Count >= maxBubbles)
         {
-            ClearBubble(activeBubbles[activeBubbles.Count - 1]);
+            ClearBubble(activeBubbles[0]);
         }
     }
 
