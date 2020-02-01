@@ -37,7 +37,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         agent.SetDestination(sofaPoint.transform.position);
-        door.OperateDoor();
+        door.OperateDoor(0.75f);
     }
 
     public void Leave()

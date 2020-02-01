@@ -12,13 +12,14 @@ public class DoorScript : MonoBehaviour
     bool open = false;
     float animationDuration = 0.75f;
 
-    public void OperateDoor()
+    public void OperateDoor(float delay = 0f)
     {
-        StartCoroutine(OperateDoorRoutine());
+        StartCoroutine(OperateDoorRoutine(delay));
     }
 
-    IEnumerator OperateDoorRoutine()
+    IEnumerator OperateDoorRoutine(float delay)
     {
+        yield return new WaitForSeconds(delay);
         float timer = 0f;
         float startAngle = transform.rotation.z;
         float targetAngle = open ? closedAngle : openAngle;
