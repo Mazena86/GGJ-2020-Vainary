@@ -24,19 +24,21 @@ public class Bubble : MonoBehaviour
         foreach(Transform child in transform)
         {
             child.GetComponent<Image>().sprite = null;
+            child.GetComponent<Image>().enabled = false;
         }
         FadeIn();
     }
 
     public IEnumerator TypewriteEmojis()
     {
-        Stack<Sprite> emojiQueue = new Stack<Sprite>(emojis);
+        Queue<Sprite> emojiQueue = new Queue<Sprite>(emojis);
         int index = 0;
         while (emojiQueue.Count > 0)
         {
-            Sprite next = emojiQueue.Pop();
+            Sprite next = emojiQueue.Dequeue();
             GameObject slot = gameObject.transform.GetChild(index).gameObject;
             slot.GetComponent<Image>().sprite = next;
+            slot.GetComponent<Image>().enabled = true;
             yield return new WaitForSeconds(0.5f);
             index++;
         }

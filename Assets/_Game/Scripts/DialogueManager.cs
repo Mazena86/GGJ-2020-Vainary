@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
     public Dialogue currentDialogue;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject endScreen;
-    [SerializeField] private List<Sprite> emojis;
     private int currentNode = 0;
     private int score = 3;
 
@@ -55,27 +54,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowText(DialogueNode node)
     {
-        List<Sprite> nodeEmojis = ParseEmojis(node.text);
-        ChatManager.Instance.AddBubble(nodeEmojis);
-    }
-
-    private List<Sprite> ParseEmojis(string text)
-    {
-        List<Sprite> parsed = new List<Sprite>();
-        string[] codes = text.Split(' ');
-        for (int i = 0; i < codes.Length; i++)
-        {
-            Sprite emoji = emojis.Find(x => x.name == codes[i]);
-            if (emoji != null)
-            {
-                parsed.Add(emoji);
-            }
-            else
-            {
-                Debug.LogError("No matching emoji for code " + codes[i]);
-            }
-        }
-        return parsed;
+        ChatManager.Instance.AddBubble(node.emojis);
     }
 
     public void ShowOptions(DialogueNode node)
@@ -84,8 +63,7 @@ public class DialogueManager : MonoBehaviour
         int index = 0;
         foreach(Transform option in options.transform)
         {
-            List<Sprite> emojis = ParseEmojis(node.options[index].emoji);
-            option.gameObject.GetComponent<Option>().Initialize(emojis, node.options[index].effect);
+            option.gameObject.GetComponent<Option>().Initialize(node.options[index].emojis, node.options[index].effect);
             index++;
         }
     }

@@ -31,13 +31,13 @@ public class Dialogue : ScriptableObject
 public class DialogueNode
 {
     public DialogueType type = DialogueType.Normal;
-    public string text = string.Empty;
+    public List<Sprite> emojis = new List<Sprite>();
     public DialogueOption[] options = new DialogueOption[3];
 }
 
 [System.Serializable]
 public class DialogueOption
 {
-    public string emoji;
+    public List<Sprite> emojis;
     public DialogueResult effect = DialogueResult.Neutral;
 }
