@@ -1073,6 +1073,7 @@ GameObject:
   - component: {fileID: 7412930472801588513}
   - component: {fileID: 1641263313159684020}
   - component: {fileID: 8666981250933938150}
+  - component: {fileID: 4799752723353962818}
   m_Layer: 5
   m_Name: PatientScore
   m_TagString: Untagged
@@ -1180,6 +1181,19 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &4799752723353962818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494630478153565194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b98738e6dae6534485665cdb5a75da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
 --- !u!1 &7869454851294992804
 GameObject:
   m_ObjectHideFlags: 0

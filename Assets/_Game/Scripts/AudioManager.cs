@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
     private float musicVolume = 0.5f;
     private float sfxVolume = 0.5f;
     public bool isDone = false;
+    private bool isOn = true;
 
     void Awake()
     {
@@ -44,6 +45,18 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void ToggleSound()
+    {
+        if(isOn)
+        {
+            StopAll();
+            isOn = false;
+        }
+        else{
+            isOn = true;
         }
     }
 
@@ -83,32 +96,38 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name)
     {
-        Sound sound = Array.Find(sounds, x => x.name == name);
-        if (sound == null)
+        if(isOn)
         {
-            Debug.Log("Sound named " + name + " was not found.");
-            return;
-        }
-        if (!sound.source.isPlaying)
-        {
-            //Debug.Log("Play audio: " + sound.name);
-            sound.source.Play();
+            Sound sound = Array.Find(sounds, x => x.name == name);
+            if (sound == null)
+            {
+                Debug.Log("Sound named " + name + " was not found.");
+                return;
+            }
+            if (!sound.source.isPlaying)
+            {
+                //Debug.Log("Play audio: " + sound.name);
+                sound.source.Play();
+            }
         }
     }
 
     public void PlayOnce(string name, bool allowOverlapping = false)
     {
-        Sound sound = Array.Find(sounds, x => x.name == name);
-        if (sound == null)
+        if(isOn)
         {
-            Debug.Log("Sound named " + name + " was not found.");
-            return;
+            Sound sound = Array.Find(sounds, x => x.name == name);
+            if (sound == null)
+            {
+                Debug.Log("Sound named " + name + " was not found.");
+                return;
+            }
+            if (!sound.source.isPlaying || allowOverlapping)
+            {
+                sound.source.PlayOneShot(sound.clip);
+            }
+            // Debug.Log("Play audio: " + sound.name);
         }
-        if (!sound.source.isPlaying || allowOverlapping)
-        {
-            sound.source.PlayOneShot(sound.clip);
-        }
-        // Debug.Log("Play audio: " + sound.name);
     }
 
     public void Stop(string name)
@@ -145,14 +164,17 @@ public class AudioManager : MonoBehaviour
 
     public void Resume(string name)
     {
-        Sound sound = Array.Find(sounds, x => x.name == name);
-        if (sound == null)
+        if(isOn)
         {
-            Debug.Log("Sound named " + name + " was not found.");
-            return;
+            Sound sound = Array.Find(sounds, x => x.name == name);
+            if (sound == null)
+            {
+                Debug.Log("Sound named " + name + " was not found.");
+                return;
+            }
+            sound.source.UnPause();
+            // Debug.Log("Resumed audio: " + sound.name);
         }
-        sound.source.UnPause();
-        // Debug.Log("Resumed audio: " + sound.name);
     }
 }
 
