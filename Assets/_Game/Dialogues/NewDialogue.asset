@@ -28,9 +28,15 @@ MonoBehaviour:
   - type: 0
     text: laugh laugh laugh laugh laugh
     options: []
-  - type: 0
+  - type: 1
     text: laugh laugh laugh laugh laugh
-    options: []
+    options:
+    - emoji: laugh laugh laugh
+      effect: 0
+    - emoji: thinking thinking thinking
+      effect: 1
+    - emoji: unamused unamused unamused
+      effect: 2
   - type: 0
     text: laugh laugh laugh laugh laugh
     options: []

@@ -25,7 +25,7 @@ public class ChatManager : MonoBehaviour
             {
                 GameObject newBubble = Instantiate(bubblePrefab, Vector3.zero, Quaternion.identity);
                 newBubble.SetActive(false);
-                newBubble.transform.SetParent(transform, true);
+                newBubble.transform.SetParent(transform, false);
                 Bubble script = newBubble.GetComponent<Bubble>();
                 inactiveBubbles.Enqueue(script);
             }
@@ -41,12 +41,12 @@ public class ChatManager : MonoBehaviour
         Bubble bubble = inactiveBubbles.Dequeue();
         bubble.gameObject.SetActive(true);
         bubble.Initialize(emojis, Vector3.zero, 0);
-        // Move others forward
-        foreach(Bubble activeBubble in activeBubbles)
-        {
-            activeBubble.MoveUp(50);
-        }
         activeBubbles.Add(bubble);
+        // Move others forward
+        foreach (Bubble activeBubble in activeBubbles)
+        {
+            activeBubble.MoveUp(250);
+        }
         // Clear last bubble
         if (activeBubbles.Count >= maxBubbles)
         {

@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get; private set; }
 
     public Dialogue currentDialogue;
-    [SerializeField] private GameObject[] options;
+    [SerializeField] private GameObject options;
     [SerializeField] private GameObject endScreen;
     [SerializeField] private List<CodeEmojiPair> emojis;
     private int currentNode = 0;
@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        HideOptions();
         PlayDialogue();
     }
 
@@ -79,34 +80,38 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowOptions(DialogueNode node)
     {
-        for (int i = 0; i < node.options.Length; i++)
+        options.SetActive(true);
+        int index = 0;
+        foreach(Transform option in options.transform)
         {
-            options[i].SetActive(true);
+            List<Sprite> emojis = ParseEmojis(node.options[index].emoji);
+            option.gameObject.GetComponent<Option>().Initialize(emojis, node.options[index].effect);
+            index++;
         }
     }
 
     public void HideOptions()
     {
-        foreach(GameObject option in options)
-        {
-            option.SetActive(false);
-        }
+        options.SetActive(false);
     }
 
     public void DoPositiveEffect()
     {
         score += 2;
+        Debug.Log("Positive");
         OnOptionSelected();
     }
 
     public void DoNeutralEffect()
     {
         score++;
+        Debug.Log("Neutral");
         OnOptionSelected();
     }
 
     public void DoNegativeEffect()
     {
+        Debug.Log("Negative");
         OnOptionSelected();
     }
 

@@ -20,7 +20,7 @@ public class Bubble : MonoBehaviour
     {
         emojis = sprites;
         counter = emojis.Count;
-        gameObject.transform.position = startPos;
+        gameObject.GetComponent<RectTransform>().anchoredPosition = startPos;
         foreach(Transform child in transform)
         {
             child.GetComponent<Image>().sprite = null;
@@ -37,7 +37,7 @@ public class Bubble : MonoBehaviour
             Sprite next = emojiQueue.Pop();
             GameObject slot = gameObject.transform.GetChild(index).gameObject;
             slot.GetComponent<Image>().sprite = next;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.5f);
             index++;
         }
         // Done writing so request next bubble
@@ -62,12 +62,12 @@ public class Bubble : MonoBehaviour
     IEnumerator FadeAnimation(bool fadein)
     {
         // setup
+        RectTransform rectTransform = transform.GetComponent<RectTransform>();
         Vector3 origScale = new Vector3(1, 1, 1);
-        Debug.Log(origScale);
         if(fadein)
         {
             // make it invisibly small
-            transform.localScale = new Vector3(0,0,0);
+            rectTransform.localScale = new Vector3(0,0,0);
         }
         float scalingFactor = 0;
         float timer = 0;
@@ -84,7 +84,7 @@ public class Bubble : MonoBehaviour
             {
                 scalingFactor = Mathf.Lerp(origScale.y, 0, timer / animationTime);
             }
-            transform.localScale = new Vector3(scalingFactor, scalingFactor, scalingFactor);
+            rectTransform.localScale = new Vector3(scalingFactor, scalingFactor, scalingFactor);
             yield return null;
         }
         if(!fadein)
@@ -103,8 +103,10 @@ public class Bubble : MonoBehaviour
     IEnumerator MoveAnimation(float yOffset)
     {
         // setup
-        Vector3 outPosition = transform.position + new Vector3(0, yOffset, 0);
-        Debug.Log("Going to position " + outPosition);
+        RectTransform rectTransform = transform.GetComponent<RectTransform>();
+        float startY = rectTransform.anchoredPosition.y;
+        float endY = rectTransform.anchoredPosition.y + yOffset;
+        Debug.Log("Going to position y " + endY);
 
         // lerp the object's position
         float timer = 0;
@@ -112,9 +114,9 @@ public class Bubble : MonoBehaviour
         {
             timer = Mathf.Clamp(timer + Time.unscaledDeltaTime, 0, animationTime);
 
-            float yPos = Mathf.Lerp(gameObject.transform.position.x, outPosition.x, timer / animationTime);
+            float yPos = Mathf.Lerp(startY, endY, timer / animationTime);
 
-            gameObject.transform.position += new Vector3(0, yPos, 0);
+            rectTransform.anchoredPosition = new Vector3(0, yPos, 0);
 
             yield return null;
         }
