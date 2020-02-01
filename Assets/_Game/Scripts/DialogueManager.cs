@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogue = dialogue;
         currentNode = 0;
+        Score = 0;
     }
 
     public void SpawnPatient(GameObject patientPrefab)
