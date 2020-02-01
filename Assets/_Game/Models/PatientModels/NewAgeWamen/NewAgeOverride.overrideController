@@ -8,4 +8,16 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: NewAgeOverride
   m_Controller: {fileID: 9100000, guid: d84c7d4cf4f8d1d4d96c17d7533aeb55, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: cf8fa2a3f9518f647ba1c53ec04cfcea,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 5adc73c12899a2444afde2668877fb97,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 8497550b3b583bf46b4f26707c462030,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: dcea010ef84189f4386c610abd9fbd48,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 09624dfeeb919ad44ac76bebdecb79aa,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 435b377ee6158a245b47aa9930f12a8f,
+      type: 3}
