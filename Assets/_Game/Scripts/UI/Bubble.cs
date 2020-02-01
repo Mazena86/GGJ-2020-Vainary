@@ -21,6 +21,10 @@ public class Bubble : MonoBehaviour
         emojis = sprites;
         counter = emojis.Count;
         gameObject.transform.position = startPos;
+        foreach(Transform child in transform)
+        {
+            child.GetComponent<Image>().sprite = null;
+        }
         FadeIn();
     }
 
@@ -84,6 +88,7 @@ public class Bubble : MonoBehaviour
         if(!fadein)
         {
             // The object should be moved to unused list
+            gameObject.SetActive(false);
             Debug.Log("Done FadeOut");
         }
         else

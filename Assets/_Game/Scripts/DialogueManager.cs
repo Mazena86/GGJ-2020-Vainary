@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] options;
     [SerializeField] private GameObject endScreen;
     [SerializeField] private List<CodeEmojiPair> emojis;
+    private int currentNode = 0;
     private int score = 3;
 
     private void Awake()
@@ -25,19 +26,28 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        PlayDialogue();
+    }
+
     public void PlayDialogue()
     {
-        DialogueNode node = currentDialogue.GetNextNode();
+        DialogueNode node = currentDialogue.GetNode(currentNode);
+        currentNode++;
         if (node == null)
         {
+            Debug.Log("End");
             // Show end screen
         }
-        if (node.type == DialogueType.Normal)
+        else if (node.type == DialogueType.Normal)
         {
+            Debug.Log("Show text");
             ShowText(node);
         }
         else if (node.type == DialogueType.Option)
         {
+            Debug.Log("Show options");
             ShowOptions(node);
         }
     }

@@ -17,6 +17,14 @@ public class ChatManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            for (int i = 0; i < maxBubbles; i++)
+            {
+                GameObject newBubble = Instantiate(bubblePrefab, Vector3.zero, Quaternion.identity);
+                newBubble.SetActive(false);
+                newBubble.transform.SetParent(transform, true);
+                Bubble script = newBubble.GetComponent<Bubble>();
+                inactiveBubbles.Enqueue(script);
+            }
         }
         else
         {
@@ -24,24 +32,15 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        for (int i = 0; i < maxBubbles; i++)
-        {
-            GameObject newBubble = Instantiate(bubblePrefab, Vector3.zero, Quaternion.identity);
-            Bubble script = newBubble.GetComponent<Bubble>();
-            inactiveBubbles.Enqueue(script);
-        }
-    }
-
     public void AddBubble(List<Sprite> emojis)
     {
         Bubble bubble = inactiveBubbles.Dequeue();
+        bubble.gameObject.SetActive(true);
         bubble.Initialize(emojis, Vector3.zero, 0);
         // Move others forward
         foreach(Bubble activeBubble in activeBubbles)
         {
-            // activeBubble.MoveUp()
+            activeBubble.MoveUp(50);
         }
         activeBubbles.Add(bubble);
         // Clear last bubble
@@ -53,7 +52,7 @@ public class ChatManager : MonoBehaviour
 
     public void ClearBubble(Bubble bubble)
     {
-        // bubble.FadeOut();
+        bubble.FadeOut();
         activeBubbles.Remove(bubble);
         inactiveBubbles.Enqueue(bubble);
     }
