@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 176475318092629318}
   - component: {fileID: 3416248467477284038}
   - component: {fileID: 8310770911392580749}
-  - component: {fileID: 4275935908700508327}
   - component: {fileID: 7314328995928157030}
   m_Layer: 0
   m_Name: Bubble
@@ -58,6 +57,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationTime: 0.5
+  initBubble: {fileID: 0}
+  regularBubble: {fileID: 0}
   initEmojiPosition: {x: 0, y: 0, z: 0}
 --- !u!222 &3416248467477284038
 CanvasRenderer:
@@ -85,8 +86,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6728b9c9a9196624f840389727e98331, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 7cf7c983db876db48a862d1625f695b0, type: 3}
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -95,26 +96,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4275935908700508327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4586310392182649445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: 0
-  m_LayoutPriority: 1
 --- !u!114 &7314328995928157030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +112,7 @@ MonoBehaviour:
     m_Left: 20
     m_Right: 20
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 25
   m_ChildAlignment: 3
   m_Spacing: 20
   m_ChildForceExpandWidth: 0
