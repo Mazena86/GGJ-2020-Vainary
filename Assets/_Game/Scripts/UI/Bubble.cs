@@ -62,7 +62,8 @@ public class Bubble : MonoBehaviour
     IEnumerator FadeAnimation(bool fadein)
     {
         // setup
-        Vector3 origScale = transform.localScale; // should be (1,1,1)
+        Vector3 origScale = new Vector3(1, 1, 1);
+        Debug.Log(origScale);
         if(fadein)
         {
             // make it invisibly small
@@ -77,12 +78,13 @@ public class Bubble : MonoBehaviour
             if(fadein)
             {
                 // TODO make this animationcurve
-                scalingFactor = Mathf.Lerp(0, origScale.x, timer / animationTime);
+                scalingFactor = Mathf.Lerp(0, origScale.y, timer / animationTime);
             }
             else
             {
-                scalingFactor = Mathf.Lerp(origScale.x, 0, timer / animationTime);
+                scalingFactor = Mathf.Lerp(origScale.y, 0, timer / animationTime);
             }
+            transform.localScale = new Vector3(scalingFactor, scalingFactor, scalingFactor);
             yield return null;
         }
         if(!fadein)
@@ -98,10 +100,10 @@ public class Bubble : MonoBehaviour
         }
     }
 
-    IEnumerator MoveAnimation(float xOffset)
+    IEnumerator MoveAnimation(float yOffset)
     {
         // setup
-        Vector3 outPosition = transform.position + new Vector3(xOffset, 0, 0);
+        Vector3 outPosition = transform.position + new Vector3(0, yOffset, 0);
         Debug.Log("Going to position " + outPosition);
 
         // lerp the object's position
@@ -110,9 +112,9 @@ public class Bubble : MonoBehaviour
         {
             timer = Mathf.Clamp(timer + Time.unscaledDeltaTime, 0, animationTime);
 
-            float xPos = Mathf.Lerp(gameObject.transform.position.x, outPosition.x, timer / animationTime);
+            float yPos = Mathf.Lerp(gameObject.transform.position.x, outPosition.x, timer / animationTime);
 
-            gameObject.transform.position += new Vector3(xPos, 0, 0);
+            gameObject.transform.position += new Vector3(0, yPos, 0);
 
             yield return null;
         }

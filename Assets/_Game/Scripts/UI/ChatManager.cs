@@ -17,6 +17,10 @@ public class ChatManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            foreach(Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
             for (int i = 0; i < maxBubbles; i++)
             {
                 GameObject newBubble = Instantiate(bubblePrefab, Vector3.zero, Quaternion.identity);
