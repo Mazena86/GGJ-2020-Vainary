@@ -27,7 +27,7 @@ public class DoorScript : MonoBehaviour
         {
             timer = Mathf.Clamp(timer + Time.deltaTime, 0, animationDuration);
             float rotationAngle = Mathf.Lerp(startAngle, targetAngle, curve.Evaluate(timer / animationDuration));
-            transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+            transform.localRotation = Quaternion.Euler(0, 0, rotationAngle);
             yield return null;
         }
 
