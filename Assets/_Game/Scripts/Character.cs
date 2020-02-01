@@ -1,37 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] private float speed = 1;
-    private int currentWaypoint = 0;
-    private Vector3 targetLocation = Vector3.zero;
-    private GameObject waypoints;
+    GameObject spawnPoint;
+    GameObject sofaPoint;
+    DoorScript door;
 
-    private void Start()
+    NavMeshAgent agent;
+    
+    private void Awake()
     {
-        waypoints = GameObject.Find("Waypoints");
-        targetLocation = waypoints.transform.GetChild(0).transform.position;
+        spawnPoint = GameObject.Find("SpawnPoint");
+        sofaPoint = GameObject.Find("SofaPoint");
+        door = FindObjectOfType<DoorScript>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        if (targetLocation != Vector3.zero)
+        if(agent.destination == spawnPoint.transform.position && agent.remainingDistance < .3f)
         {
-            transform.position = Vector3.Lerp(transform.position, targetLocation, speed);
-            if (Vector3.Distance(transform.position, targetLocation) < 1)
-            {
-                currentWaypoint++;
-                if (currentWaypoint < 2)
-                {
-                    targetLocation = waypoints.transform.GetChild(currentWaypoint).transform.position;
-                }
-                else
-                {
-                    // TODO: perform lay animation and start dialogue gameObject.GetComponent<Animator>().SetTrigger("")
-                }
-            }
+            agent.isStopped = true;
+            door.OperateDoor();
         }
+        if(agent.destination == sofaPoint.transform.position && agent.remainingDistance < .2f)
+        {
+            agent.isStopped = true;
+            // Jump on sofa
+        }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        agent.SetDestination(sofaPoint.transform.position);
+        door.OperateDoor();
+    }
+
+    public void Leave()
+    {
+        agent.SetDestination(spawnPoint.transform.position);
     }
 }
