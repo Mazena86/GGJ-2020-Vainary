@@ -10,13 +10,11 @@ public class DialogueManager : MonoBehaviour
     public Dialogue currentDialogue;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject endScreen;
-    private GameObject patient;
     private int currentNode = 0;
-    private int score = 3;
 
-    public int Score { get { return score; } }
+    public int Score { get; private set; } = 0;
 
-    public GameObject Patient { get { return patient; } }
+    public GameObject Patient { get; private set; }
 
     private void Awake()
     {
@@ -44,7 +42,7 @@ public class DialogueManager : MonoBehaviour
 
     public void SpawnPatient(GameObject patientPrefab)
     {
-        patient = Instantiate(patientPrefab, Vector3.zero, Quaternion.identity);
+        Patient = Instantiate(patientPrefab, Vector3.zero, Quaternion.identity);
     }
 
     public void PlayDialogue()
@@ -91,14 +89,14 @@ public class DialogueManager : MonoBehaviour
 
     public void DoPositiveEffect()
     {
-        score += 2;
+        Score += 2;
         Debug.Log("Positive");
         OnOptionSelected();
     }
 
     public void DoNeutralEffect()
     {
-        score++;
+        Score++;
         Debug.Log("Neutral");
         OnOptionSelected();
     }
