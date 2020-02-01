@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     public Dialogue currentDialogue;
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject endScreen;
-    [SerializeField] private List<CodeEmojiPair> emojis;
+    [SerializeField] private List<Sprite> emojis;
     private int currentNode = 0;
     private int score = 3;
 
@@ -65,10 +65,10 @@ public class DialogueManager : MonoBehaviour
         string[] codes = text.Split(' ');
         for (int i = 0; i < codes.Length; i++)
         {
-            CodeEmojiPair emoji = emojis.Find(x => x.code == codes[i]);
+            Sprite emoji = emojis.Find(x => x.name == codes[i]);
             if (emoji != null)
             {
-                parsed.Add(emoji.sprite);
+                parsed.Add(emoji);
             }
             else
             {
@@ -120,11 +120,4 @@ public class DialogueManager : MonoBehaviour
         HideOptions();
         PlayDialogue();
     }
-}
-
-[Serializable]
-public class CodeEmojiPair
-{
-    public string code;
-    public Sprite sprite;
 }
