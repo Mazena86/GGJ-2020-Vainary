@@ -12,3 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a465687dd9b59a94d9f6f6f5724602dc, type: 3}
   m_Name: NewDialogue
   m_EditorClassIdentifier: 
+  nodes:
+  - type: 0
+    text: 
+    options:
+    - emoji: 
+      effect: 0
+    - emoji: 
+      effect: 0
+    - emoji: 
+      effect: 0
+  - type: 0
+    text: 
+    options: []
+  - type: 0
+    text: 
+    options: []
