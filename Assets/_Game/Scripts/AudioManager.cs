@@ -53,6 +53,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Start() 
+    {
+        if(isOn)
+        {
+            Play("Main");
+        }
+    }
+
     public void ToggleSound()
     {
         if(isOn)
