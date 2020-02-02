@@ -40,8 +40,8 @@ public class Intro : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         logoDropper.DropIn(true, true);
         yield return new WaitForSecondsRealtime(2);
-        logoDropper.DropOut(true, true);
-        selectionDropper.DropIn(true, true);
+        logoDropper.DropOut(true, false);
+        selectionDropper.DropIn(true, false);
 
     }
 }

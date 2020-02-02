@@ -97,5 +97,6 @@ public class Drop : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        animating = false;
     }
 }
