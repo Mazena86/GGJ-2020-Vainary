@@ -12,9 +12,6 @@ public class Drop : MonoBehaviour
 {
     private Vector3 originalPosition;
     private Vector3 outPosition;
-
-    public bool isVerticalMovement = true;
-    public bool isPositiveMovement = true;
     public float animationTime = 0.5f;
     private bool animating = false;
 
@@ -23,12 +20,12 @@ public class Drop : MonoBehaviour
         originalPosition = gameObject.transform.position;
     }
 
-    public void Close()
+    public void Close(bool isVerticalMovement, bool isPositiveMovement)
     {
-        DropOut();
+        DropOut(isVerticalMovement, isPositiveMovement);
     }
 
-    private void GetOutPosition(bool isPosisPositiveMovementitive)
+    private void GetOutPosition(bool isVerticalMovement, bool isPositiveMovement)
     {
         if(isVerticalMovement)
         {
@@ -44,7 +41,7 @@ public class Drop : MonoBehaviour
         }
     }
 
-    public void DropIn(bool isVerticalMovement, bool isPosisPositiveMovementitive, int delay = 0)
+    public void DropIn(bool isVerticalMovement, bool isPositiveMovement, int delay = 0)
     {
         Debug.Log("Dropping in");
         if(animating)
@@ -53,12 +50,13 @@ public class Drop : MonoBehaviour
         }
         animating = true;
         gameObject.SetActive(true);
+        GetOutPosition(isVerticalMovement, isPositiveMovement);
 
         // begin dropin
         StartCoroutine(DropAnimation(true, delay));
     }
 
-    public void DropOut(int delay = 0)
+    public void DropOut(bool isVerticalMovement, bool isPositiveMovement, int delay = 0)
     {
         Debug.Log("'dropping out'");
         if(animating)
@@ -66,10 +64,10 @@ public class Drop : MonoBehaviour
             return;
         }
         animating = true;
+        GetOutPosition(isVerticalMovement, isPositiveMovement);
         StartCoroutine(DropAnimation(false, delay));
     }
 
-    // Overload for Images
     IEnumerator DropAnimation(bool incoming, int delay = 0)
     {
         // move the object out-of-screen if necessary
@@ -93,6 +91,11 @@ public class Drop : MonoBehaviour
 
             gameObject.transform.position = new Vector3(xPos, yPos, zPos);
             yield return null;
+        }
+
+        if(!incoming)
+        {
+            gameObject.SetActive(false);
         }
     }
 }
