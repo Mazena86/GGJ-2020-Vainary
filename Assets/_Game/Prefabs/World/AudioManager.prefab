@@ -88,7 +88,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: FaithMumble
     type: 0
-    clip: {fileID: 8300000, guid: 9f6965b22147475418557cff9dfb7e94, type: 3}
+    clip: {fileID: 8300000, guid: a0deabaf2c2fd0745827608ec3193e04, type: 3}
     loop: 1
     pitch: 1
     source: {fileID: 0}
