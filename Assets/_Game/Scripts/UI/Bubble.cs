@@ -39,10 +39,10 @@ public class Bubble : MonoBehaviour
             GameObject slot = gameObject.transform.GetChild(index).gameObject;
             slot.GetComponent<Image>().sprite = next;
             slot.GetComponent<Image>().enabled = true;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.25f);
             index++;
         }
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.75f);
         // Done writing so request next bubble
         DialogueManager.Instance.PlayDialogue();
     }
