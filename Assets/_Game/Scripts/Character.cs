@@ -7,19 +7,22 @@ public class Character : MonoBehaviour
 {
     GameObject spawnPoint;
     GameObject sofaPoint;
+    GameObject sitPosition;
     DoorScript door;
     Animator animator;
     [SerializeField] AnimationCurve jumpTurnCurve;
     GameObject currentDestination = null;
-    Vector3 sitPosition = new Vector3(-15.46f, 0, 15.63f);
+    // Vector3 sitPosition = new Vector3(-180, 0, 14.4f);
 
     NavMeshAgent agent;
     bool sitting = false;
+    bool leaving = false;
     
     private void Awake()
     {
         spawnPoint = GameObject.Find("SpawnPoint");
         sofaPoint = GameObject.Find("SofaPoint");
+        sitPosition = GameObject.Find("SitPosition");
         door = FindObjectOfType<DoorScript>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -30,7 +33,7 @@ public class Character : MonoBehaviour
         // Debug.Log("Target: " + (agent.destination == null ? "null" : agent.destination.ToString()));
         // Debug.Log("Agent stopped: " + agent.isStopped);
         // Debug.Log("Agent distance: " + agent.remainingDistance);
-        if( agent.remainingDistance < .5f && currentDestination == spawnPoint)
+        if(agent.enabled && agent.remainingDistance < .5f && currentDestination == spawnPoint)
         {
             agent.isStopped = true;
             door.OperateDoor();
@@ -38,21 +41,21 @@ public class Character : MonoBehaviour
             DialogueManager.Instance.ShowEndScreen();
             Destroy(gameObject, 1f);
         }
-        if(agent.remainingDistance < .5f && currentDestination == sofaPoint)
+        if(agent.enabled && agent.remainingDistance < .5f && currentDestination == sofaPoint)
         {
             Debug.Log("Reached sofa");
             currentDestination = null;
             agent.isStopped = true;
+            agent.enabled = false;
             StartCoroutine(JumpOnSofa());
             // Jump on sofa
         }
-        if (sitting)
-            transform.position = sitPosition;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        leaving = false;
         door.OperateDoor(0.75f);
         StartCoroutine(StartMoving(0.65f));
     }
@@ -69,15 +72,16 @@ public class Character : MonoBehaviour
         animator.SetTrigger("Jump");
         float maxTime = 1f;
         float timer = 0;
-        float startRotation = transform.rotation.y;
-        float targetRotation = 0;
-        Vector3 targetPosition = sitPosition;
+        Quaternion startRotation = transform.rotation;
+        Quaternion targetRotation = sitPosition.transform.rotation;
+        Vector3 targetPosition = sitPosition.transform.position;
         Vector3 startPosition = transform.position;
         while(timer < maxTime)
         {
             timer = Mathf.Clamp(timer + Time.deltaTime, 0, maxTime);
-            float newRotation = Mathf.Lerp(startRotation, targetRotation, jumpTurnCurve.Evaluate(timer / maxTime));
-            transform.rotation = Quaternion.Euler(0, newRotation, 0);
+            //float newRotation = Mathf.Lerp(startRotation, targetRotation, jumpTurnCurve.Evaluate(timer / maxTime));
+            //transform.rotation = Quaternion.Euler(0, newRotation, 0);
+            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, jumpTurnCurve.Evaluate(timer / maxTime));
             transform.position = Vector3.Lerp(startPosition, targetPosition, jumpTurnCurve.Evaluate(timer / maxTime));
             Debug.Log("Turning");
             yield return null;
@@ -102,13 +106,23 @@ public class Character : MonoBehaviour
 
     public void Leave()
     {
-        StartCoroutine(LeaveRoutine());
+        leaving = true;
+        animator.SetTrigger("Jump");
+    }
+
+    public void StoodUp()
+    {
+        if(leaving)
+        {
+            Debug.Log("Leaving");
+            StartCoroutine(LeaveRoutine());
+        }
     }
 
     private IEnumerator LeaveRoutine()
     {
         sitting = false;
-        animator.SetTrigger("Jump");
+        
         float timer = 0;
         float timeToMove = 1f;
         Vector3 startPos = transform.position;
@@ -118,6 +132,7 @@ public class Character : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, sofaPoint.transform.position, timer / timeToMove);
             yield return null;
         }
+        agent.enabled = true;
         agent.isStopped = false;
         agent.SetDestination(spawnPoint.transform.position);
         currentDestination = spawnPoint;
