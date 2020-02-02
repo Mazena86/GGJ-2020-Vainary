@@ -17,7 +17,8 @@ public class Drop : MonoBehaviour
 
     void Awake()
     {
-        originalPosition = gameObject.transform.position;
+        RectTransform got = gameObject.transform as RectTransform;
+        originalPosition = got.anchoredPosition;
     }
 
     public void Close(bool isVerticalMovement, bool isPositiveMovement, float animationTime)
@@ -73,20 +74,21 @@ public class Drop : MonoBehaviour
         // move the object out-of-screen if necessary
         if(incoming)
         {
-            gameObject.transform.position = outPosition;
+            gameObject.GetComponent<RectTransform>().anchoredPosition = outPosition;
         }
 
         // lerp the object's position
         float timer = 0;
+        RectTransform rt = gameObject.GetComponent<RectTransform>();
         while(timer < animationTime)
         {
             timer = Mathf.Clamp(timer + Time.unscaledDeltaTime, 0, animationTime);
 
-            float xPos = Mathf.Lerp(gameObject.transform.position.x, incoming? originalPosition.x : outPosition.x, curve.Evaluate(timer / animationTime));
-            float yPos = Mathf.Lerp(gameObject.transform.position.y, incoming? originalPosition.y : outPosition.y, curve.Evaluate(timer / animationTime));
-            float zPos = Mathf.Lerp(gameObject.transform.position.z, incoming? originalPosition.z : outPosition.z, curve.Evaluate(timer / animationTime));
+            float xPos = Mathf.Lerp(rt.anchoredPosition.x, incoming? originalPosition.x : outPosition.x, curve.Evaluate(timer / animationTime));
+            float yPos = Mathf.Lerp(rt.anchoredPosition.y, incoming? 0 : outPosition.y, curve.Evaluate(timer / animationTime));
+            // float zPos = Mathf.Lerp(rt.anchoredPosition.z, incoming? originalPosition.z : outPosition.z, curve.Evaluate(timer / animationTime));
 
-            gameObject.transform.position = new Vector3(xPos, yPos, zPos);
+            rt.anchoredPosition = new Vector3(xPos, yPos);
             yield return null;
         }
 

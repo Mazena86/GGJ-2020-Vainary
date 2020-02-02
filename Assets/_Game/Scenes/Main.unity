@@ -6920,7 +6920,7 @@ PrefabInstance:
     - target: {fileID: 1994537141891669726, guid: c638d7715b91bba47b3ca967a64a6271,
         type: 3}
       propertyPath: m_MatchWidthOrHeight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1999388983040054062, guid: c638d7715b91bba47b3ca967a64a6271,
         type: 3}
@@ -11321,24 +11321,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6093239983063400287}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6093239983063400290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6093239983063400288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0681cb8750066ce4c873cc62f42d4f68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &7500673530725335225
 PrefabInstance:
   m_ObjectHideFlags: 0
