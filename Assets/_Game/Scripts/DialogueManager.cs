@@ -94,10 +94,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowText(DialogueNode node)
     {
-        if (ChatManager.Instance == null)
-            Debug.Log("It's chat");
-        if (node.emojis == null)
-            Debug.Log("Null  emojis");
+        AudioManager.Instance.Play(Patient.name + "Mumble");
         if(!ChatManager.Instance.ChatCanvas.activeInHierarchy)
         {
             ChatManager.Instance.ChatCanvas.SetActive(true);
@@ -107,6 +104,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowOptions(DialogueNode node)
     {
+        AudioManager.Instance.Stop(Patient.name + "Mumble");
         options.SetActive(true);
         int index = 0;
         foreach(Transform option in options.transform)
