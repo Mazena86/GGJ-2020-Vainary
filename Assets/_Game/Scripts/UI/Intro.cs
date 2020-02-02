@@ -25,8 +25,8 @@ public class Intro : MonoBehaviour
         }
         else
         {
-            logoDropper.Close(true, true);
-            selectionDropper.Close(true, true);
+            logoDropper.Close(true, true, 0.1f);
+            selectionDropper.Close(true, true, 0.1f);
         }
     }
 
@@ -38,10 +38,9 @@ public class Intro : MonoBehaviour
     IEnumerator IntroAnimation()
     {
         yield return new WaitForSecondsRealtime(1);
-        logoDropper.DropIn(true, true);
+        logoDropper.DropIn(true, true, 1.0f);
         yield return new WaitForSecondsRealtime(2);
-        logoDropper.DropOut(true, false);
-        selectionDropper.DropIn(true, false);
-
+        logoDropper.DropOut(true, true, 3.0f);
+        selectionDropper.DropIn(true, false, 3.0f);
     }
 }

@@ -12,17 +12,17 @@ public class Drop : MonoBehaviour
 {
     private Vector3 originalPosition;
     private Vector3 outPosition;
-    public float animationTime = 0.5f;
     private bool animating = false;
+    [SerializeField] AnimationCurve curve;
 
     void Awake()
     {
         originalPosition = gameObject.transform.position;
     }
 
-    public void Close(bool isVerticalMovement, bool isPositiveMovement)
+    public void Close(bool isVerticalMovement, bool isPositiveMovement, float animationTime)
     {
-        DropOut(isVerticalMovement, isPositiveMovement);
+        DropOut(isVerticalMovement, isPositiveMovement, animationTime);
     }
 
     private void GetOutPosition(bool isVerticalMovement, bool isPositiveMovement)
@@ -41,7 +41,7 @@ public class Drop : MonoBehaviour
         }
     }
 
-    public void DropIn(bool isVerticalMovement, bool isPositiveMovement, int delay = 0)
+    public void DropIn(bool isVerticalMovement, bool isPositiveMovement, float animationTime)
     {
         Debug.Log("Dropping in");
         if(animating)
@@ -53,10 +53,10 @@ public class Drop : MonoBehaviour
         GetOutPosition(isVerticalMovement, isPositiveMovement);
 
         // begin dropin
-        StartCoroutine(DropAnimation(true, delay));
+        StartCoroutine(DropAnimation(true, animationTime));
     }
 
-    public void DropOut(bool isVerticalMovement, bool isPositiveMovement, int delay = 0)
+    public void DropOut(bool isVerticalMovement, bool isPositiveMovement, float animationTime)
     {
         Debug.Log("'dropping out'");
         if(animating)
@@ -65,10 +65,10 @@ public class Drop : MonoBehaviour
         }
         animating = true;
         GetOutPosition(isVerticalMovement, isPositiveMovement);
-        StartCoroutine(DropAnimation(false, delay));
+        StartCoroutine(DropAnimation(false, animationTime));
     }
 
-    IEnumerator DropAnimation(bool incoming, int delay = 0)
+    IEnumerator DropAnimation(bool incoming, float animationTime = 0.5f)
     {
         // move the object out-of-screen if necessary
         if(incoming)
@@ -76,18 +76,15 @@ public class Drop : MonoBehaviour
             gameObject.transform.position = outPosition;
         }
 
-        // wait for it... 
-        yield return new WaitForSecondsRealtime(delay);
-
         // lerp the object's position
         float timer = 0;
         while(timer < animationTime)
         {
             timer = Mathf.Clamp(timer + Time.unscaledDeltaTime, 0, animationTime);
 
-            float xPos = Mathf.Lerp(gameObject.transform.position.x, incoming? originalPosition.x : outPosition.x, timer / animationTime);
-            float yPos = Mathf.Lerp(gameObject.transform.position.y, incoming? originalPosition.y : outPosition.y, timer / animationTime);
-            float zPos = Mathf.Lerp(gameObject.transform.position.z, incoming? originalPosition.z : outPosition.z, timer / animationTime);
+            float xPos = Mathf.Lerp(gameObject.transform.position.x, incoming? originalPosition.x : outPosition.x, curve.Evaluate(timer / animationTime));
+            float yPos = Mathf.Lerp(gameObject.transform.position.y, incoming? originalPosition.y : outPosition.y, curve.Evaluate(timer / animationTime));
+            float zPos = Mathf.Lerp(gameObject.transform.position.z, incoming? originalPosition.z : outPosition.z, curve.Evaluate(timer / animationTime));
 
             gameObject.transform.position = new Vector3(xPos, yPos, zPos);
             yield return null;
