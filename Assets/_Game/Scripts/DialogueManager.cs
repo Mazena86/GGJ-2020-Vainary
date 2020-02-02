@@ -42,22 +42,32 @@ public class DialogueManager : MonoBehaviour
         currentNode = 0;
         Score = 0;
         currentDialoguePlayed = false;
+        Debug.Log("Dialogue called: " + dialogue.name);
     }
 
     public void SpawnPatient(GameObject patientPrefab)
     {
         Patient = Instantiate(patientPrefab, spawnPoint.transform.position, Quaternion.identity);
+        Patient.name = patientPrefab.name;
         // Patient.GetComponent<Animator>().SetTrigger("Enter");
+    }
+
+    public void ShowEndScreen()
+    {
+        endScreen.SetActive(true);
     }
 
     public void PlayDialogue()
     {
+        Debug.Log("Called PlayDialogue");
         DialogueNode node = currentDialogue.GetNode(currentNode);
         currentNode++;
         if (node == null)
         {
             Debug.Log("End");
-            endScreen.SetActive(true);
+            ChatManager.Instance.ClearBubbles();
+            // endScreen.SetActive(true);
+            Patient.GetComponent<Character>().Leave();
         }
         else if (node.type == DialogueType.Normal)
         {

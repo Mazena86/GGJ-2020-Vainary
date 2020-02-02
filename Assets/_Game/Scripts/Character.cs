@@ -35,6 +35,8 @@ public class Character : MonoBehaviour
             agent.isStopped = true;
             door.OperateDoor();
             currentDestination = null;
+            DialogueManager.Instance.ShowEndScreen();
+            Destroy(gameObject, 1f);
         }
         if(agent.remainingDistance < .5f && currentDestination == sofaPoint)
         {
@@ -116,7 +118,7 @@ public class Character : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, sofaPoint.transform.position, timer / timeToMove);
             yield return null;
         }
-
+        agent.isStopped = false;
         agent.SetDestination(spawnPoint.transform.position);
         currentDestination = spawnPoint;
     }

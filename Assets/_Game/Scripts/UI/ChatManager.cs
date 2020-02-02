@@ -70,9 +70,9 @@ public class ChatManager : MonoBehaviour
 
     public void ClearBubbles()
     {
-        foreach(Bubble bubble in activeBubbles)
+        while(activeBubbles.Count > 0)
         {
-            ClearBubble(bubble);
+            ClearBubble(activeBubbles[0]);
         }
     }
 }

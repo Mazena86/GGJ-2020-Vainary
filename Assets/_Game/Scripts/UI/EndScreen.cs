@@ -38,6 +38,7 @@ public class EndScreen : MonoBehaviour
         if (calculatedScore > PlayerPrefs.GetInt(DialogueManager.Instance.Patient.name, 0))
         {
             PlayerPrefs.SetInt(DialogueManager.Instance.Patient.name, calculatedScore);
+            Debug.Log("Saved score for " + DialogueManager.Instance.Patient.name);
         }
     }
 }
