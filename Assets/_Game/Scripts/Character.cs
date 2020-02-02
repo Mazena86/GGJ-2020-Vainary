@@ -116,6 +116,7 @@ public class Character : MonoBehaviour
         {
             Debug.Log("Leaving");
             StartCoroutine(LeaveRoutine());
+            leaving = false;
         }
     }
 
@@ -133,8 +134,14 @@ public class Character : MonoBehaviour
             yield return null;
         }
         agent.enabled = true;
-        agent.isStopped = false;
+        agent.ResetPath();
         agent.SetDestination(spawnPoint.transform.position);
+        agent.isStopped = false;
         currentDestination = spawnPoint;
     }
+
+    //private IEnumerator MoveTo(Vector3 target)
+    //{
+
+    //}
 }
