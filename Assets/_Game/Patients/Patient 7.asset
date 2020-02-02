@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bee9f359dddc474eb51c3923b025cbc, type: 3}
   m_Name: Patient 7
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3233857756596637814, guid: 9f5d5adb3a1bc3f4491e68969d243f11, type: 3}
-  dialogue: {fileID: 11400000, guid: 1af28f742802aff4abd139f25aa739a2, type: 2}
+  prefab: {fileID: 2602845316674477500, guid: b9c1317fd4e349c4891647f781dedbc4, type: 3}
+  dialogue: {fileID: 11400000, guid: 264362a6f8af9054b85b11e373ec09f8, type: 2}

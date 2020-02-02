@@ -1728,6 +1728,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Mags
+      objectReference: {fileID: 0}
     - target: {fileID: 5451675561075489196, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2237,6 +2242,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Fyrd
+      objectReference: {fileID: 0}
     - target: {fileID: 5451675561075489196, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2740,6 +2750,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Judge
+      objectReference: {fileID: 0}
     - target: {fileID: 5451675561075489196, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3230,6 +3245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Bill
       objectReference: {fileID: 0}
     - target: {fileID: 5451675561075489196, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
@@ -3771,6 +3791,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 24ebb4c28c8784d48b157761d99037e6,
         type: 3}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Faith
+      objectReference: {fileID: 0}
     - target: {fileID: 5071325261451529922, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
       propertyPath: m_Sprite
@@ -4292,6 +4317,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Love
+      objectReference: {fileID: 0}
     - target: {fileID: 5451675561075489196, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -4788,6 +4818,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Kid
       objectReference: {fileID: 0}
     - target: {fileID: 5451675561075489196, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
@@ -5310,6 +5345,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 24ebb4c28c8784d48b157761d99037e6,
         type: 3}
+    - target: {fileID: 4799752723353962818, guid: 20772d1bb03c85d418cb7e4e65548396,
+        type: 3}
+      propertyPath: id
+      value: Ryle
+      objectReference: {fileID: 0}
     - target: {fileID: 5071325261451529922, guid: 20772d1bb03c85d418cb7e4e65548396,
         type: 3}
       propertyPath: m_Sprite
