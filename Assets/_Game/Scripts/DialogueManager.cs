@@ -145,6 +145,7 @@ public class DialogueManager : MonoBehaviour
 
     public void OnOptionSelected()
     {
+        AudioManager.Instance.Play("Click");
         HideOptions();
         PlayDialogue();
     }

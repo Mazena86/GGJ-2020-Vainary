@@ -86,6 +86,7 @@ public class Character : MonoBehaviour
             Debug.Log("Turning");
             yield return null;
         }
+        AudioManager.Instance.Play("Sofa");
         sitting = true;
     }
 

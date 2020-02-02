@@ -15,6 +15,7 @@ public class DoorScript : MonoBehaviour
     public void OperateDoor(float delay = 0f)
     {
         StartCoroutine(OperateDoorRoutine(delay));
+        AudioManager.Instance.Play("Door");
     }
 
     IEnumerator OperateDoorRoutine(float delay)
