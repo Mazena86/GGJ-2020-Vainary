@@ -71,7 +71,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: f554cf3d646a65647b6ce69f29712403, type: 3}
     - {fileID: 21300000, guid: 4a1bc10643929e34da0e8629c178d79b, type: 3}
     - {fileID: 21300000, guid: 3716ca99f06ca644fba5a5ddd3a58055, type: 3}
-    - {fileID: 21300000, guid: aba8f6d5553741d4b8b52a78402549ad, type: 3}
+    - {fileID: 21300000, guid: ef86f113ce378ef448aeaabec5e49ec9, type: 3}
     options: []
   - type: 0
     emojis:
