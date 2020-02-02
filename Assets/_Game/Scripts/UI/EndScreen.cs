@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndScreen : MonoBehaviour
 {
     [SerializeField] private GameObject scores;
+    [SerializeField] private Image picture;
 
     private void OnEnable()
     {
@@ -35,6 +37,7 @@ public class EndScreen : MonoBehaviour
         {
             scores.transform.GetChild(i).GetChild(0).gameObject.SetActive(i < calculatedScore);
         }
+        picture.sprite = DialogueManager.Instance.PatientPicture;
         if (calculatedScore > PlayerPrefs.GetInt(DialogueManager.Instance.Patient.name, 0))
         {
             PlayerPrefs.SetInt(DialogueManager.Instance.Patient.name, calculatedScore);
