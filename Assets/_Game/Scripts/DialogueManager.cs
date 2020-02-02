@@ -74,6 +74,14 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowText(DialogueNode node)
     {
+        if (ChatManager.Instance == null)
+            Debug.Log("It's chat");
+        if (node.emojis == null)
+            Debug.Log("Null  emojis");
+        if(!ChatManager.Instance.ChatCanvas.activeInHierarchy)
+        {
+            ChatManager.Instance.ChatCanvas.SetActive(true);
+        }
         ChatManager.Instance.AddBubble(node.emojis);
     }
 

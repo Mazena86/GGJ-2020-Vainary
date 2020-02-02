@@ -8,10 +8,6 @@ public class EndScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        foreach(Transform child in scores.transform)
-        {
-            child.gameObject.SetActive(false);
-        }
         int calculatedScore = 0;
         switch(DialogueManager.Instance.Score)
         {
@@ -35,9 +31,9 @@ public class EndScreen : MonoBehaviour
                 calculatedScore = 5;
                 break;
         }
-        for (int i = 0; i < calculatedScore; i++)
+        for (int i = 0; i < scores.transform.childCount; i++)
         {
-            scores.transform.GetChild(i).gameObject.SetActive(true);
+            scores.transform.GetChild(i).GetChild(0).gameObject.SetActive(i < calculatedScore);
         }
         if (calculatedScore > PlayerPrefs.GetInt(DialogueManager.Instance.Patient.name, 0))
         {

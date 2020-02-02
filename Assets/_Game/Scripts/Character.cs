@@ -85,6 +85,7 @@ public class Character : MonoBehaviour
 
     public void PatientOnSofa()
     {
+        Debug.Log("On sofa");
         if(!DialogueManager.Instance.currentDialoguePlayed)
         {
             StartCoroutine(OnSofaRoutine());
