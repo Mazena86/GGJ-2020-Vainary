@@ -144,6 +144,7 @@ public class DialogueManager : MonoBehaviour
     public void OnOptionSelected()
     {
         AudioManager.Instance.Play("Click");
+        AudioManager.Instance.Play("TherapyMumble");
         HideOptions();
         PlayDialogue();
     }
