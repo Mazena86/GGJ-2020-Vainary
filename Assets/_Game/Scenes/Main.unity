@@ -237,6 +237,42 @@ MonoBehaviour:
     loop: 0
     pitch: 1
     source: {fileID: 0}
+  - name: FyrdMumble
+    type: 0
+    clip: {fileID: 8300000, guid: 9a46677a6ebbd914b8b0878acf5fb42d, type: 3}
+    loop: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: KidMumble
+    type: 0
+    clip: {fileID: 8300000, guid: 915f569818f24a24291ad83c689e9017, type: 3}
+    loop: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: OldLadyMumble
+    type: 0
+    clip: {fileID: 8300000, guid: cf882a909370a624481d119e3538c7e4, type: 3}
+    loop: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FaithMumble
+    type: 0
+    clip: {fileID: 8300000, guid: 9f6965b22147475418557cff9dfb7e94, type: 3}
+    loop: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: JudgeMumble
+    type: 0
+    clip: {fileID: 8300000, guid: 402473cc728d4ac458d979c1b3c692b9, type: 3}
+    loop: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: RyleMumble
+    type: 0
+    clip: {fileID: 8300000, guid: 0fed6e68b2e42c648a5ab107486d05f4, type: 3}
+    loop: 1
+    pitch: 1
+    source: {fileID: 0}
   audioButton: {fileID: 385836487}
   isOnButtonSSprite: {fileID: 21300000, guid: 4fdde5058e016be48bd4f29c5b6c7e2b, type: 3}
   isOffButtonSSprite: {fileID: 21300000, guid: 5fa6be1484831cd49ad87ef6771da266, type: 3}
@@ -11152,7 +11188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0681cb8750066ce4c873cc62f42d4f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationTime: 0.5
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &7500673530725335225
 PrefabInstance:
   m_ObjectHideFlags: 0
