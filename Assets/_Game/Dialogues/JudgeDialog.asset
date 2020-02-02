@@ -38,7 +38,7 @@ MonoBehaviour:
   - type: 0
     emojis:
     - {fileID: 21300000, guid: 92f40b52e5a0a6b4ab94996373b97130, type: 3}
-    - {fileID: 21300000, guid: aba8f6d5553741d4b8b52a78402549ad, type: 3}
+    - {fileID: 21300000, guid: 753fdd8e1fc05f0439ee3add9719a529, type: 3}
     - {fileID: 21300000, guid: 424e4245cebf8994d823a34717e38e83, type: 3}
     - {fileID: 21300000, guid: f18cab4bcdbe8504faf53a7101c559ba, type: 3}
     options: []
@@ -71,7 +71,7 @@ MonoBehaviour:
     emojis:
     - {fileID: 21300000, guid: e70070638a0c7a24f903ab50a3a5c778, type: 3}
     - {fileID: 21300000, guid: d015546e893c0d74bae3c1fc132a9a90, type: 3}
-    - {fileID: 21300000, guid: 793e7c495803187419eb0e2837ba087d, type: 3}
+    - {fileID: 21300000, guid: 1e8e9ed91f23fb74ea512c4fa5b73885, type: 3}
     options: []
   - type: 0
     emojis:
@@ -102,7 +102,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 9cfe2adf0892e8b4984feb554eb06ed3, type: 3}
     - {fileID: 21300000, guid: e70070638a0c7a24f903ab50a3a5c778, type: 3}
     - {fileID: 21300000, guid: 0be64adc2aa1a834f886836d45327ab0, type: 3}
-    - {fileID: 21300000, guid: 2054b4e49134dbe4682bf61f150a0fe7, type: 3}
+    - {fileID: 21300000, guid: f79210d2709ac174997bdf1c6a42e387, type: 3}
     - {fileID: 21300000, guid: 17e61400728b6bd48813e3b9c17e0a62, type: 3}
     options: []
   - type: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     options: []
   - type: 0
     emojis:
-    - {fileID: 21300000, guid: 2054b4e49134dbe4682bf61f150a0fe7, type: 3}
+    - {fileID: 21300000, guid: 62e2cd1e1ec41f344ac3e83833398fbc, type: 3}
     - {fileID: 21300000, guid: e2fb689fcd8bba14aaa5e1be4d8348b2, type: 3}
     - {fileID: 21300000, guid: 56c78f1f662cd7749b1c249e26735f01, type: 3}
     - {fileID: 21300000, guid: 7e550cb0e705c7a489695414c12e8c65, type: 3}
@@ -124,15 +124,15 @@ MonoBehaviour:
     - emojis:
       - {fileID: 21300000, guid: dbb542b35f945764bad726117d345952, type: 3}
       - {fileID: 21300000, guid: 92f40b52e5a0a6b4ab94996373b97130, type: 3}
-      - {fileID: 21300000, guid: c4b82be3fbf78b146a9dfc07b646fc43, type: 3}
+      - {fileID: 21300000, guid: 0e560c97f00ed6143a668caf3a40d7c0, type: 3}
       effect: 1
     - emojis:
       - {fileID: 21300000, guid: db7e618fb40b066439d9f3c59ce2db9a, type: 3}
       - {fileID: 21300000, guid: 92229d404c810e447903b7158f7b8a4e, type: 3}
-      - {fileID: 21300000, guid: d6a05f000436e0f478a4ed5d9d5cc81b, type: 3}
+      - {fileID: 21300000, guid: 55eaa204d9316924ab7cccf7a4ec7b3f, type: 3}
       effect: 2
     - emojis:
       - {fileID: 21300000, guid: db7e618fb40b066439d9f3c59ce2db9a, type: 3}
       - {fileID: 21300000, guid: 124977b5fe654714dba24f2986b0cdc4, type: 3}
-      - {fileID: 21300000, guid: d6a05f000436e0f478a4ed5d9d5cc81b, type: 3}
+      - {fileID: 21300000, guid: 4623ab07d27150041845c702a50e721f, type: 3}
       effect: 0
