@@ -1958,17 +1958,17 @@ PrefabInstance:
     - target: {fileID: -7521214134985992077, guid: f561c149a7889064a933cec4ebc20a3d,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.16037738
+      value: 0.16041689
       objectReference: {fileID: 0}
     - target: {fileID: -7521214134985992077, guid: f561c149a7889064a933cec4ebc20a3d,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.13599624
+      value: 0.12941177
       objectReference: {fileID: 0}
     - target: {fileID: -7521214134985992077, guid: f561c149a7889064a933cec4ebc20a3d,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.129361
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: -7379894275460881151, guid: f561c149a7889064a933cec4ebc20a3d,
         type: 3}
