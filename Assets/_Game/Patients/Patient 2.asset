@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bee9f359dddc474eb51c3923b025cbc, type: 3}
+  m_Name: Patient 2
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5335615800099867901, guid: d8503d5ce376dd54493d5eef52a99988, type: 3}
+  dialogue: {fileID: 11400000, guid: 41630138c31ed3549ae520fed67cecac, type: 2}
