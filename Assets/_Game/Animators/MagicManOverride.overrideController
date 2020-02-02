@@ -7,5 +7,13 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MagicManOverride
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 7909e221e3ae33f489709829429aeebd, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fb259f4f23eb8b44f8b396394b704f8d, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: edbe7d41f217df34197f378118d0b65a,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: b5440dc2a3dde74488234b59d9f147db, type: 2}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 6591bc7d3d0225542a1a6a01838e5ee4,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 5dd610c5d7acc70448f12c9e4b1c6280, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2dc6f07a4a90e5740a4933b012280853, type: 2}
