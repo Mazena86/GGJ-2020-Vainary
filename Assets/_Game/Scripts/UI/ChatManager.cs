@@ -9,6 +9,8 @@ public class ChatManager : MonoBehaviour
 
     [SerializeField] private GameObject bubblePrefab;
     [SerializeField] private int maxBubbles;
+    public Transform ChatTransform;
+    public GameObject ChatCanvas;
     private List<Bubble> activeBubbles = new List<Bubble>();
     private Queue<Bubble> inactiveBubbles = new Queue<Bubble>();
 
@@ -17,7 +19,12 @@ public class ChatManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            foreach(Transform child in transform)
+            if(ChatTransform == null)
+            {
+                Debug.LogError("Chat transform missing!");
+                return;
+            }
+            foreach(Transform child in ChatTransform)
             {
                 Destroy(child.gameObject);
             }
@@ -25,7 +32,7 @@ public class ChatManager : MonoBehaviour
             {
                 GameObject newBubble = Instantiate(bubblePrefab, Vector3.zero, Quaternion.identity);
                 newBubble.SetActive(false);
-                newBubble.transform.SetParent(transform, false);
+                newBubble.transform.SetParent(ChatTransform, false);
                 Bubble script = newBubble.GetComponent<Bubble>();
                 inactiveBubbles.Enqueue(script);
             }
