@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public int Score { get; private set; } = 0;
 
     public GameObject Patient { get; private set; }
+    public bool currentDialoguePlayed = false;
 
     private void Awake()
     {
@@ -40,12 +41,13 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = dialogue;
         currentNode = 0;
         Score = 0;
+        currentDialoguePlayed = false;
     }
 
     public void SpawnPatient(GameObject patientPrefab)
     {
         Patient = Instantiate(patientPrefab, spawnPoint.transform.position, Quaternion.identity);
-        Patient.GetComponent<Animator>().SetTrigger("Enter");
+        // Patient.GetComponent<Animator>().SetTrigger("Enter");
     }
 
     public void PlayDialogue()
@@ -67,6 +69,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("Show options");
             ShowOptions(node);
         }
+        currentDialoguePlayed = true;
     }
 
     public void ShowText(DialogueNode node)
