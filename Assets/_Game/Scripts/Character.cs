@@ -72,10 +72,12 @@ public class Character : MonoBehaviour
         animator.SetTrigger("Jump");
         float maxTime = 1f;
         float timer = 0;
+
         Quaternion startRotation = transform.rotation;
         Quaternion targetRotation = sitPosition.transform.rotation;
         Vector3 targetPosition = sitPosition.transform.position;
         Vector3 startPosition = transform.position;
+
         while(timer < maxTime)
         {
             timer = Mathf.Clamp(timer + Time.deltaTime, 0, maxTime);
