@@ -18,6 +18,9 @@ public class DialogueManager : MonoBehaviour
     public int Score { get; private set; } = 0;
 
     public GameObject Patient { get; private set; }
+
+    public Sprite PatientPicture { get; private set; }
+
     public bool currentDialoguePlayed = false;
 
     private void Awake()
@@ -45,6 +48,11 @@ public class DialogueManager : MonoBehaviour
         Score = 0;
         currentDialoguePlayed = false;
         Debug.Log("Dialogue called: " + dialogue.name);
+    }
+
+    public void SetPatientPicture(Sprite picture)
+    {
+        PatientPicture = picture;
     }
 
     public void SpawnPatient(GameObject patientPrefab)
