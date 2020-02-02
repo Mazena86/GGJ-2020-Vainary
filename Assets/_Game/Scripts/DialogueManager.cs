@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject endScreen;
     [SerializeField] private GameObject spawnPoint;
+    [SerializeField] private ParticleSystem angryParticles;
+    [SerializeField] private ParticleSystem happyParticles;
     private int currentNode = 0;
 
     public int Score { get; private set; } = 0;
@@ -114,6 +116,7 @@ public class DialogueManager : MonoBehaviour
     public void DoPositiveEffect()
     {
         Score += 2;
+        happyParticles.Play();
         Debug.Log("Positive");
         OnOptionSelected();
     }
@@ -127,6 +130,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DoNegativeEffect()
     {
+        angryParticles.Play();
         Debug.Log("Negative");
         OnOptionSelected();
     }
