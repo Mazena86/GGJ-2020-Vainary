@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
     GameObject spawnPoint;
     GameObject sofaPoint;
     DoorScript door;
+    Animator animator;
+    [SerializeField] AnimationCurve jumpTurnCurve;
 
     NavMeshAgent agent;
     
@@ -17,6 +19,7 @@ public class Character : MonoBehaviour
         sofaPoint = GameObject.Find("SofaPoint");
         door = FindObjectOfType<DoorScript>();
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -38,6 +41,27 @@ public class Character : MonoBehaviour
     {
         agent.SetDestination(sofaPoint.transform.position);
         door.OperateDoor(0.75f);
+    }
+
+    private IEnumerator JumpOnSofa()
+    {
+        animator.SetTrigger("Jump");
+        float maxTime = .3f;
+        float timer = 0;
+        float startRotation = transform.rotation.y;
+        float targetRotation = 180;
+        while(timer < maxTime)
+        {
+            timer = Mathf.Clamp(timer + Time.deltaTime, 0, maxTime);
+            float newRotation = Mathf.Lerp(startRotation, targetRotation, jumpTurnCurve.Evaluate(timer / maxTime));
+            transform.rotation = Quaternion.Euler(0, newRotation, 0);
+            yield return null;
+        }
+    }
+
+    public void PatientOnSofa()
+    {
+
     }
 
     public void Leave()
